@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Bateria — Login</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="login-pagina">
+        <div class="login-caixa">
+
+            <!-- tela login -->
+            <div id="tela-login">
+                <div class="login-icone">🥁</div>
+                <div class="login-logo">BATERIAFLOW</div>
+                <p class="login-subtitulo">Acesse sua área de aluno</p>
+
+                <div class="campo-grupo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Sua senha">
+                </div>
+
+                <button class="btn btn-primario login-btn" id="btn-entrar">
+                    Entrar
+                </button>
+
+                <p style="margin-top: 16px; font-size: 0.85rem;">
+                    Não tem conta?
+                    <a href="#" id="link-cadastrar">Criar conta</a>
+                </p>
+
+                <p style="margin-top: 8px; font-size: 0.85rem;">
+                    <a href="#" id="link-esqueci">Esqueci minha senha</a>
+                </p>
+
+                <div class="login-erro" id="msg-erro"></div>
+            </div>
+
+            <!-- tela cadastro -->
+            <div id="tela-cadastro" style="display: none;">
+                <div class="login-icone">📝</div>
+                <div class="login-logo">CRIAR CONTA</div>
+                <p class="login-subtitulo">
+                    Crie sua conta e aguarde a aprovação do professor.
+                </p>
+
+                <div class="campo-grupo">
+                    <label for="cad-nome">Seu nome</label>
+                    <input type="text" id="cad-nome" placeholder="Nome completo">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="cad-email">E-mail</label>
+                    <input type="email" id="cad-email" placeholder="seu@email.com">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="cad-senha">Senha</label>
+                    <input type="password" id="cad-senha" placeholder="Mínimo 6 caracteres">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="cad-senha2">Confirmar senha</label>
+                    <input type="password" id="cad-senha2" placeholder="Repita a senha">
+                </div>
+
+                <button class="btn btn-primario login-btn" id="btn-cadastrar">
+                    Criar conta
+                </button>
+
+                <p style="margin-top: 16px; font-size: 0.85rem;">
+                    <a href="#" id="link-voltar-login">← Voltar ao login</a>
+                </p>
+
+                <div class="login-erro" id="msg-cadastro"></div>
+            </div>
+
+            <!-- tela senha -->
+            <div id="tela-recuperar" style="display: none;">
+                <div class="login-icone">🔑</div>
+                <div class="login-logo">RECUPERAR</div>
+                <p class="login-subtitulo">
+                    Digite seu e-mail e enviaremos um link para redefinir sua senha.
+                </p>
+
+                <div class="campo-grupo">
+                    <label for="email-recuperar">E-mail</label>
+                    <input type="email" id="email-recuperar" placeholder="seu@email.com">
+                </div>
+
+                <button class="btn btn-primario login-btn" id="btn-recuperar">
+                    Enviar link
+                </button>
+
+                <p style="margin-top: 16px; font-size: 0.85rem;">
+                    <a href="#" id="link-voltar">← Voltar ao login</a>
+                </p>
+
+                <div class="login-erro" id="msg-recuperar"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>

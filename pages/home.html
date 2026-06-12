@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Bateria - Home</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+
+    <div class="drum-app">
+
+        <nav class="topbar">
+            <div class="logo">DANIEL<span>SANTOS</span></div>
+            <div class="nav-links">
+                <a href="#" class="active">Início</a>
+                <a href="#">Módulos</a>
+                <a href="#">Biblioteca</a>
+            </div>
+            <div class="avatar">MA</div>
+        </nav>
+
+        <div class="hero-section">
+            <div class="welcome-row" style="max-width:1200px;margin:0 auto 1.5rem;">
+                <div class="welcome-text">
+                    <h1>OLÁ, <span>ALUNO!</span></h1>
+                    <p>Continue de onde parou — você está evoluindo muito bem 🥁</p>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-label">Progresso geral</div>
+                    <div class="progress-num">32%</div>
+                    <div class="progress-bar-wrap">
+                        <div class="progress-bar-fill" id="progressFill"></div>
+                    </div>
+                    <div style="font-size:12px;color:#888;margin-top:6px;">14 de 44 aulas concluídas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <div class="left-col">
+
+                <div style="margin-bottom:2.5rem;">
+                    <div class="section-title">
+                        <i class="ti ti-trophy" aria-hidden="true" style="color:#e8c94a;font-size:20px;"></i>
+                        Alunos em Destaque
+                        <span class="badge">Novos vídeos</span>
+                    </div>
+                    <div class="videos-grid">
+
+                        <div class="video-card" onclick="this.style.borderColor='#e8c94a'">
+                            <div class="video-thumb">
+                                <div class="video-thumb-bg"></div>
+                                <svg style="position:absolute;width:100%;height:100%;opacity:0.07"
+                                    viewBox="0 0 200 100">
+                                    <circle cx="100" cy="50" r="40" fill="none" stroke="#e8c94a" stroke-width="8" />
+                                    <line x1="100" y1="10" x2="100" y2="90" stroke="#e8c94a" stroke-width="4" />
+                                    <line x1="60" y1="50" x2="140" y2="50" stroke="#e8c94a" stroke-width="4" />
+                                </svg>
+                                <div class="play-btn"><i class="ti ti-player-play"></i></div>
+                                <span class="video-duration">3:42</span>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-aluno-row">
+                                    <div class="aluno-avatar" style="background:#2a1e00;color:#e8c94a;">RF</div>
+                                    <span class="aluno-name">Rafael F.</span>
+                                </div>
+                                <div class="video-title">Groove no estilo funk — primeira performance</div>
+                                <div class="video-module"><i class="ti ti-music"
+                                        style="font-size:12px;vertical-align:-1px;margin-right:3px;"></i>Módulo 2 ·
+                                    Ritmo e
+                                    Groove</div>
+                            </div>
+                        </div>
+
+                        <div class="video-card" onclick="this.style.borderColor='#e8c94a'">
+                            <div class="video-thumb">
+                                <div class="video-thumb-bg"></div>
+                                <svg style="position:absolute;width:100%;height:100%;opacity:0.07"
+                                    viewBox="0 0 200 100">
+                                    <ellipse cx="100" cy="60" rx="50" ry="20" fill="none" stroke="#e8c94a"
+                                        stroke-width="6" />
+                                    <line x1="80" y1="0" x2="100" y2="60" stroke="#e8c94a" stroke-width="4" />
+                                    <line x1="120" y1="0" x2="100" y2="60" stroke="#e8c94a" stroke-width="4" />
+                                </svg>
+                                <div class="play-btn"><i class="ti ti-player-play"></i></div>
+                                <span class="video-duration">4:17</span>
+                            </div>
+                            <div class="video-info">
+                                <div class="video-aluno-row">
+                                    <div class="aluno-avatar" style="background:#0a1e2a;color:#4ab8e8;">JS</div>
+                                    <span class="aluno-name">Julia S.</span>
+                                </div>
+                                <div class="video-title">Exercício de independência — pés e mãos sincronizados</div>
+                                <div class="video-module"><i class="ti ti-music"
+                                        style="font-size:12px;vertical-align:-1px;margin-right:3px;"></i>Módulo 3 ·
+                                    Coordenação</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button
+                        onclick="sendPrompt('Quero adicionar mais vídeos de alunos na seção de destaque. Como funciona?')"
+                        style="background:transparent;border:1px solid #2a2a2a;border-radius:8px;color:#888;font-size:13px;padding:8px 18px;cursor:pointer;font-family:Nunito,sans-serif;transition:all 0.2s;"
+                        onmouseover="this.style.borderColor='#e8c94a44';this.style.color='#e8c94a'"
+                        onmouseout="this.style.borderColor='#2a2a2a';this.style.color='#888'">
+                        <i class="ti ti-plus" style="font-size:14px;vertical-align:-2px;margin-right:4px;"></i>
+                        Adicionar
+                        vídeo de aluno ↗
+                    </button>
+                </div>
+
+                <div class="modulos-wrap">
+                    <div class="section-title">
+                        <i class="ti ti-layout-grid" aria-hidden="true" style="color:#e8c94a;font-size:20px;"></i>
+                        Conteúdo do Curso
+                    </div>
+
+                    <div class="modulo-card">
+                        <div class="modulo-header">
+                            <div class="modulo-icon" style="background:#1e2a10;">
+                                <i class="ti ti-check" style="color:#5acd2a;font-size:20px;"></i>
+                            </div>
+                            <div class="modulo-meta">
+                                <div class="modulo-nome">Módulo 1 — Fundamentos</div>
+                                <div class="modulo-desc">Partes da bateria, postura e primeiros toques</div>
+                            </div>
+                            <div class="modulo-stats">
+                                <span style="color:#5acd2a;font-weight:700;">Concluído</span>
+                                <i class="ti ti-chevron-down" style="color:#555;font-size:16px;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modulo-card em-andamento" id="mod2">
+                        <div class="modulo-header" onclick="toggleMod('mod2-body')">
+                            <div class="modulo-icon" style="background:#2a1e00;">
+                                <i class="ti ti-music" style="color:#e8c94a;font-size:20px;"></i>
+                            </div>
+                            <div class="modulo-meta">
+                                <div class="modulo-nome">Módulo 2 — Ritmo e Groove</div>
+                                <div class="modulo-desc">Rudimentos, padrões de groove e variações</div>
+                            </div>
+                            <div class="modulo-stats">
+                                <span
+                                    style="font-size:12px;background:#3a2e00;color:#e8c94a;padding:2px 8px;border-radius:5px;font-weight:700;">Em
+                                    andamento</span>
+                                <i class="ti ti-chevron-down" id="mod2-chev"
+                                    style="color:#e8c94a;font-size:16px;transition:transform 0.2s;transform:rotate(180deg);"></i>
+                            </div>
+                        </div>
+                        <div class="modulo-prog-wrap" id="mod2-body">
+                            <div
+                                style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#888;margin-bottom:6px;">
+                                <span>5 de 9 aulas concluídas</span><span
+                                    style="color:#e8c94a;font-weight:700;">56%</span>
+                            </div>
+                            <div style="background:#2a2a2a;border-radius:99px;height:4px;margin-bottom:12px;">
+                                <div style="background:#e8c94a;border-radius:99px;height:4px;width:56%;"></div>
+                            </div>
+                            <div class="aulas-list">
+                                <div class="aula-item">
+                                    <div class="aula-status done"><i class="ti ti-check" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome done">Introdução ao groove</span><span
+                                        class="aula-dur">8min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status done"><i class="ti ti-check" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome done">Padrão básico de rock</span><span
+                                        class="aula-dur">12min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status done"><i class="ti ti-check" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome done">Variações no chimbal</span><span
+                                        class="aula-dur">10min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status done"><i class="ti ti-check" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome done">Rudimento: flam</span><span
+                                        class="aula-dur">9min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status done"><i class="ti ti-check" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome done">Groove no funk</span><span
+                                        class="aula-dur">14min</span>
+                                </div>
+                                <div class="aula-item" style="background:#1e1800;border-radius:8px;">
+                                    <div class="aula-status current"><i class="ti ti-player-play"
+                                            style="font-size:11px;"></i></div><span class="aula-nome current">Groove no
+                                        samba-rock</span><span class="aula-dur" style="color:#e8c94a;">15min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status locked"><i class="ti ti-lock" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome" style="color:#555;">Fills de 1 compasso</span><span
+                                        class="aula-dur">11min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status locked"><i class="ti ti-lock" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome" style="color:#555;">Dinâmica: forte e piano</span><span
+                                        class="aula-dur">9min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status locked"><i class="ti ti-lock" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome" style="color:#555;">Projeto final do módulo</span><span
+                                        class="aula-dur">20min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modulo-card" id="mod3">
+                        <div class="modulo-header" onclick="toggleMod('mod3-body')">
+                            <div class="modulo-icon" style="background:#0a1e2a;">
+                                <i class="ti ti-adjustments-horizontal" style="color:#4ab8e8;font-size:20px;"></i>
+                            </div>
+                            <div class="modulo-meta">
+                                <div class="modulo-nome">Módulo 3 — Coordenação</div>
+                                <div class="modulo-desc">Independência dos membros e polirritmos</div>
+                            </div>
+                            <div class="modulo-stats">
+                                <span style="font-size:12px;color:#555;">0/8 aulas</span>
+                                <i class="ti ti-chevron-down" id="mod3-chev"
+                                    style="color:#555;font-size:16px;transition:transform 0.2s;"></i>
+                            </div>
+                        </div>
+                        <div class="modulo-prog-wrap" id="mod3-body" style="display:none;">
+                            <div class="aulas-list">
+                                <div class="aula-item">
+                                    <div class="aula-status locked"><i class="ti ti-lock" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome" style="color:#555;">Pé direito e mão esquerda</span><span
+                                        class="aula-dur">10min</span>
+                                </div>
+                                <div class="aula-item">
+                                    <div class="aula-status locked"><i class="ti ti-lock" style="font-size:11px;"></i>
+                                    </div>
+                                    <span class="aula-nome" style="color:#555;">Padrões em 3/4</span><span
+                                        class="aula-dur">12min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modulo-card" id="mod4">
+                        <div class="modulo-header" onclick="toggleMod('mod4-body')">
+                            <div class="modulo-icon" style="background:#1a0a1e;">
+                                <i class="ti ti-star" style="color:#b87ee8;font-size:20px;"></i>
+                            </div>
+                            <div class="modulo-meta">
+                                <div class="modulo-nome">Módulo 4 — Estilos Musicais</div>
+                                <div class="modulo-desc">Rock, samba, jazz, funk e muito mais</div>
+                            </div>
+                            <div class="modulo-stats">
+                                <span style="font-size:12px;color:#555;">0/10 aulas</span>
+                                <i class="ti ti-lock" style="color:#555;font-size:16px;"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="sidebar">
+
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <div class="sidebar-card-title">
+                            <i class="ti ti-flame" style="color:#e8c94a;font-size:18px;" aria-hidden="true"></i>
+                            Sequência de estudos
+                        </div>
+                    </div>
+                    <div class="streak-card">
+                        <div>
+                            <div class="streak-num">7</div>
+                            <div class="streak-lbl">dias seguidos 🔥</div>
+                            <div class="streak-days">
+                                <div class="day-dot done"></div>
+                                <div class="day-dot done"></div>
+                                <div class="day-dot done"></div>
+                                <div class="day-dot done"></div>
+                                <div class="day-dot done"></div>
+                                <div class="day-dot done"></div>
+                                <div class="day-dot today"></div>
+                            </div>
+                        </div>
+                        <div style="flex:1;padding-left:12px;border-left:1px solid #2a2a2a;">
+                            <div style="font-size:12px;color:#888;margin-bottom:4px;">Seu recorde</div>
+                            <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#555;">12 dias</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <div class="sidebar-card-title">
+                            <i class="ti ti-player-play" style="color:#e8c94a;font-size:18px;" aria-hidden="true"></i>
+                            Próxima aula
+                        </div>
+                    </div>
+                    <div class="proxima-aula">
+                        <div class="pa-tag">Módulo 2 · Aula 6</div>
+                        <div class="pa-titulo">Groove no samba-rock: variações de chimbal e bumbo</div>
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+                            <i class="ti ti-clock" style="color:#555;font-size:15px;" aria-hidden="true"></i>
+                            <span style="font-size:12px;color:#888;">15 minutos · Nível intermediário</span>
+                        </div>
+                        <button class="pa-btn">
+                            <i class="ti ti-player-play" style="font-size:16px;"></i> Continuar aula
+                        </button>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <div class="sidebar-card-title">
+                            <i class="ti ti-message-circle" style="color:#e8c94a;font-size:18px;"
+                                aria-hidden="true"></i>
+                            Dúvidas com o professor
+                        </div>
+                        <div class="unread-badge">2</div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="msg professor">
+                            <div class="msg-av" style="background:#2a4a10;color:#5acd2a;">P</div>
+                            <div class="msg-body">
+                                <div class="msg-author" style="color:#5acd2a;">Prof. Carlos</div>
+                                <div class="msg-text">Olá! Bem-vindo ao curso 🥁 Se tiver qualquer dúvida sobre a aula,
+                                    é só
+                                    perguntar aqui!</div>
+                            </div>
+                        </div>
+                        <div class="msg" style="flex-direction:row-reverse;">
+                            <div class="msg-av" style="background:#2a1e00;color:#e8c94a;">MA</div>
+                            <div class="msg-body" style="text-align:right;">
+                                <div class="msg-author" style="color:#e8c94a;">Você</div>
+                                <div class="msg-text" style="border-radius:10px 4px 4px 10px;">Prof, no samba-rock o
+                                    bumbo
+                                    vai em todas as colcheias ou só no 1 e 3?</div>
+                            </div>
+                        </div>
+                        <div class="msg professor">
+                            <div class="msg-av" style="background:#2a4a10;color:#5acd2a;">P</div>
+                            <div class="msg-body">
+                                <div class="msg-author" style="color:#5acd2a;">Prof. Carlos</div>
+                                <div class="msg-text">Boa pergunta! No padrão básico vai em todas as colcheias, mas na
+                                    aula
+                                    6 eu mostro as variações com bumbo mais esparso — fica muito mais gostoso assim!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-row">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Digite sua dúvida..."
+                            onkeydown="sendMsg(event)" />
+                        <button class="chat-send" onclick="sendMsg({key:'Enter'})">
+                            <i class="ti ti-send" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="../js/home.js"></script>
+
+</body>
+
+</html>

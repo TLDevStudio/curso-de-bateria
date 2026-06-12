@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Bateria — Painel Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar" id="sidebar">
+            <div class="admin-sidebar-logo">
+                🥁 BATERIAFLOW
+            </div>
+
+            <ul class="admin-nav">
+                <li>
+                    <a href="#" class="ativo" data-secao="alunos">
+                        👥 Alunos
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-secao="pendentes">
+                        ⏳ Pendentes
+                    </a>
+                </li>
+                <li>
+                    <a href="home.html">
+                        🏠 Ver site
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="link-logout">
+                        🚪 Sair
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="admin-main">
+
+            <!-- Header -->
+            <div class="admin-header">
+                <div>
+                    <span class="admin-badge">Painel Admin</span>
+                    <h1 class="admin-titulo-pagina" id="titulo-pagina">
+                        Gerenciar Alunos
+                    </h1>
+                </div>
+                <div id="info-professor" style="color: var(--cor-texto-suave); font-size: 0.85rem;">
+                    Carregando...
+                </div>
+            </div>
+
+            <!-- Cards de estatísticas -->
+            <div class="stats-grid" id="stats">
+                <div class="stat-card">
+                    <div class="stat-card-numero" id="stat-total">—</div>
+                    <div class="stat-card-label">Total de alunos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-numero" id="stat-aprovados">—</div>
+                    <div class="stat-card-label">Aprovados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-numero" id="stat-pendentes">—</div>
+                    <div class="stat-card-label">Aguardando aprovação</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-numero" id="stat-bloqueados">—</div>
+                    <div class="stat-card-label">Bloqueados</div>
+                </div>
+            </div>
+
+            <!-- Tabela de alunos -->
+            <div class="card-tabela">
+
+                <div class="card-tabela-header">
+                    <span class="card-tabela-titulo">Lista de alunos</span>
+
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+                        <!-- Filtros -->
+                        <div class="filtros">
+                            <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
+                            <button class="filtro-btn" data-filtro="pendente">Pendentes</button>
+                            <button class="filtro-btn" data-filtro="aprovado">Aprovados</button>
+                            <button class="filtro-btn" data-filtro="bloqueado">Bloqueados</button>
+                        </div>
+
+                        <!-- Busca -->
+                        <input type="text" class="input-busca" id="busca" placeholder="🔍 Buscar aluno...">
+                    </div>
+                </div>
+
+                <!-- Tabela -->
+                <div style="overflow-x: auto;">
+                    <table class="tabela-alunos">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Cadastro</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpo-tabela">
+                            <tr>
+                                <td colspan="5">
+                                    <div class="tabela-vazia">
+                                        <span>⏳</span>
+                                        Carregando alunos...
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script type="module" src="../js/admin.js"></script>
+</body>
+
+</html>
