@@ -99,16 +99,32 @@ export async function fazerLogin(email, senha) {
 }
 
 export function protegerPagina() {
-    onAuthStateChanged(auth, async (usuario) => {
-        console.log("🔥 onAuthStateChanged disparou:", usuario ? usuario.email : "NULL");
-        console.log("emailVerified:", usuario?.emailVerified);
+    auth.authStateReady().then(() => {
+        onAuthStateChanged(auth, async (usuario) => {
+            if (!usuario) {
+                window.location.href = "../index.html";
+                return;
+            }
 
-        if (!usuario) {
-            console.log("❌ usuario null — redirecionando");
-            window.location.href = "../index.html";
-            return;
-        }
-        // resto do código...
+            await usuario.reload();
+
+            if (!usuario.emailVerified) {
+                window.location.href = "../index.html";
+                return;
+            }
+
+            try {
+                const docAluno = await getDoc(doc(db, "alunos", usuario.uid));
+                if (!docAluno.exists() || docAluno.data().status !== "aprovado") {
+                    await signOut(auth);
+                    window.location.href = "../index.html";
+                }
+            } catch (erro) {
+                console.error("Erro ao verificar aprovação:", erro);
+                await signOut(auth);
+                window.location.href = "../index.html";
+            }
+        });
     });
 }
 
