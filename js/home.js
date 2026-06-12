@@ -120,53 +120,51 @@ const TOTAL_AULAS = MODULOS.reduce((acc, m) => acc + m.aulas.length, 0);
 
 // ─── Proteção de página ───────────────────────────────────────────────────────
 // FIX: reload() é feito ANTES de qualquer decisão; admin é identificado primeiro
-onAuthStateChanged(auth, async (usuario) => {
-    if (!usuario) {
-        window.location.href = "../index.html";
-        return;
-    }
+auth.authStateReady().then(() => {
+    onAuthStateChanged(auth, async (usuario) => {
+        if (!usuario) {
+            window.location.href = "../index.html";
+            return;
+        }
 
-    // FIX: reload sempre primeiro para garantir emailVerified atualizado
-    try {
-        await usuario.reload();
-    } catch (e) {
-        // se o reload falhar (ex: offline), continua com o estado atual
-        console.warn("Reload falhou:", e);
-    }
+        try {
+            await usuario.reload();
+        } catch (e) {
+            console.warn("Reload falhou:", e);
+        }
 
-    // FIX: admin identificado ANTES de qualquer outra verificação
-    if (usuario.email === EMAIL_ADMIN) {
-        usuarioAtual = usuario;
-        dadosAluno = { nome: "Professor", email: usuario.email, status: "aprovado" };
-        await inicializar();
-        return;
-    }
+        if (usuario.email === EMAIL_ADMIN) {
+            usuarioAtual = usuario;
+            dadosAluno = { nome: "Professor", email: usuario.email, status: "aprovado" };
+            await inicializar();
+            return;
+        }
 
-    // Aluno comum: precisa ter email verificado
-    if (!usuario.emailVerified) {
-        await signOut(auth);
-        window.location.href = "../index.html";
-        return;
-    }
-
-    try {
-        const docRef = doc(db, "alunos", usuario.uid);
-        const snap = await getDoc(docRef);
-
-        if (!snap.exists() || snap.data().status !== "aprovado") {
+        if (!usuario.emailVerified) {
             await signOut(auth);
             window.location.href = "../index.html";
             return;
         }
 
-        usuarioAtual = usuario;
-        dadosAluno = snap.data();
-        await inicializar();
-    } catch (e) {
-        console.error("Erro ao carregar dados:", e);
-        await signOut(auth);
-        window.location.href = "../index.html";
-    }
+        try {
+            const docRef = doc(db, "alunos", usuario.uid);
+            const snap = await getDoc(docRef);
+
+            if (!snap.exists() || snap.data().status !== "aprovado") {
+                await signOut(auth);
+                window.location.href = "../index.html";
+                return;
+            }
+
+            usuarioAtual = usuario;
+            dadosAluno = snap.data();
+            await inicializar();
+        } catch (e) {
+            console.error("Erro ao carregar dados:", e);
+            await signOut(auth);
+            window.location.href = "../index.html";
+        }
+    });
 });
 
 // ─── Inicialização principal ──────────────────────────────────────────────────

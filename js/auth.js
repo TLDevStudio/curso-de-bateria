@@ -29,7 +29,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-
 const EMAIL_ADMIN = "thiagodelemosferreiraa@gmail.com";
 
 let cadastrandoAgora = false;
@@ -68,7 +67,6 @@ export async function fazerLogin(email, senha) {
         const usuario = credencial.user;
 
         if (usuario.email === EMAIL_ADMIN) {
-            // FIX: caminho correto a partir de index.html na raiz
             window.location.href = "./pages/admin.html";
             return null;
         }
@@ -91,11 +89,11 @@ export async function fazerLogin(email, senha) {
             return "Sua conta ainda está aguardando aprovação do professor.";
         }
 
-        // FIX: caminho correto a partir de index.html na raiz
         window.location.href = "./pages/home.html";
         return null;
 
     } catch (erro) {
+        console.log("❌ erro:", erro.code, erro.message);
         return traduzirErro(erro.code);
     }
 }
