@@ -28,6 +28,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+await setPersistence(auth, browserSessionPersistence);
+
 const EMAIL_ADMIN = "thiagodelemosferreiraa@gmail.com";
 
 let cadastrandoAgora = false;
