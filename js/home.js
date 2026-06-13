@@ -41,6 +41,9 @@ let progressoAluno = null;
 let unsubscribeChat = null;
 
 // ─── Estrutura dos módulos e aulas ───────────────────────────────────────────
+// PARA O PROFESSOR: Cada aula tem os campos abaixo.
+// Preencha "videoEmbed", "descricao" e "materiais" conforme disponível.
+// "disponivel: false" bloqueia a aula para os alunos.
 const MODULOS = [
     {
         id: "modulo1",
@@ -50,11 +53,63 @@ const MODULOS = [
         corIcone: "#5acd2a",
         icone: "ti-check",
         aulas: [
-            { id: "m1a1", nome: "Conhecendo a bateria", dur: "10min", disponivel: true },
-            { id: "m1a2", nome: "Postura e pegada das baquetas", dur: "12min", disponivel: true },
-            { id: "m1a3", nome: "Primeiros toques no tambor", dur: "8min", disponivel: true },
-            { id: "m1a4", nome: "Coordenação inicial pé e mão", dur: "15min", disponivel: true },
-            { id: "m1a5", nome: "Leitura rítmica básica", dur: "11min", disponivel: true },
+            {
+                id: "m1a1",
+                nome: "Conhecendo a bateria",
+                dur: "10min",
+                disponivel: true,
+                // ──────────────────────────────────────────────────────────────
+                // CONTEÚDO DA AULA — preencher quando o professor enviar
+                // ──────────────────────────────────────────────────────────────
+                videoEmbed: `<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,        // Cole aqui o iframe do YouTube/Vimeo
+                descricao:
+                    `Nessa aula você vai aprender:
+                -Postura correta com a baqueta           
+                -Postura correta com a baqueta           
+                -Postura correta com a baqueta           
+                -Postura correta com a baqueta           
+                -Postura correta com a baqueta           
+                -Postura correta com a baqueta           
+                -Como iniciar na bateria`,        // Texto explicativo da aula
+                materiais: [],         // Ex: [{ nome: "Partitura PDF", url: "#" }]
+                // ──────────────────────────────────────────────────────────────
+            },
+            {
+                id: "m1a2",
+                nome: "Postura e pegada das baquetas",
+                dur: "12min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m1a3",
+                nome: "Primeiros toques no tambor",
+                dur: "8min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m1a4",
+                nome: "Coordenação inicial pé e mão",
+                dur: "15min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m1a5",
+                nome: "Leitura rítmica básica",
+                dur: "11min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
         ]
     },
     {
@@ -65,15 +120,87 @@ const MODULOS = [
         corIcone: "#e8c94a",
         icone: "ti-music",
         aulas: [
-            { id: "m2a1", nome: "Introdução ao groove", dur: "8min", disponivel: true },
-            { id: "m2a2", nome: "Padrão básico de rock", dur: "12min", disponivel: true },
-            { id: "m2a3", nome: "Variações no chimbal", dur: "10min", disponivel: true },
-            { id: "m2a4", nome: "Rudimento: flam", dur: "9min", disponivel: true },
-            { id: "m2a5", nome: "Groove no funk", dur: "14min", disponivel: true },
-            { id: "m2a6", nome: "Groove no samba-rock", dur: "15min", disponivel: true },
-            { id: "m2a7", nome: "Fills de 1 compasso", dur: "11min", disponivel: false },
-            { id: "m2a8", nome: "Dinâmica: forte e piano", dur: "9min", disponivel: false },
-            { id: "m2a9", nome: "Projeto final do módulo", dur: "20min", disponivel: false },
+            {
+                id: "m2a1",
+                nome: "Introdução ao groove",
+                dur: "8min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a2",
+                nome: "Padrão básico de rock",
+                dur: "12min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a3",
+                nome: "Variações no chimbal",
+                dur: "10min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a4",
+                nome: "Rudimento: flam",
+                dur: "9min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a5",
+                nome: "Groove no funk",
+                dur: "14min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a6",
+                nome: "Groove no samba-rock",
+                dur: "15min",
+                disponivel: true,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a7",
+                nome: "Fills de 1 compasso",
+                dur: "11min",
+                disponivel: false,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a8",
+                nome: "Dinâmica: forte e piano",
+                dur: "9min",
+                disponivel: false,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
+            {
+                id: "m2a9",
+                nome: "Projeto final do módulo",
+                dur: "20min",
+                disponivel: false,
+                videoEmbed: "",
+                descricao: "",
+                materiais: [],
+            },
         ]
     },
     {
@@ -84,14 +211,14 @@ const MODULOS = [
         corIcone: "#4ab8e8",
         icone: "ti-adjustments-horizontal",
         aulas: [
-            { id: "m3a1", nome: "Pé direito e mão esquerda", dur: "10min", disponivel: false },
-            { id: "m3a2", nome: "Padrões em 3/4", dur: "12min", disponivel: false },
-            { id: "m3a3", nome: "Independência dos 4 membros", dur: "14min", disponivel: false },
-            { id: "m3a4", nome: "Polirritmos básicos", dur: "16min", disponivel: false },
-            { id: "m3a5", nome: "Exercícios de coordenação", dur: "13min", disponivel: false },
-            { id: "m3a6", nome: "Aplicando em músicas reais", dur: "18min", disponivel: false },
-            { id: "m3a7", nome: "Coordenação avançada", dur: "15min", disponivel: false },
-            { id: "m3a8", nome: "Projeto final", dur: "20min", disponivel: false },
+            { id: "m3a1", nome: "Pé direito e mão esquerda", dur: "10min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m3a2", nome: "Padrões em 3/4", dur: "12min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m3a3", nome: "Independência dos 4 membros", dur: "14min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m3a4", nome: "Polirritmos básicos", dur: "16min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m3a5", nome: "Exercícios de coordenação", dur: "13min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m3a6", nome: "Aplicando em músicas reais", dur: "18min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m3a7", nome: "Coordenação avançada", dur: "15min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m3a8", nome: "Projeto final", dur: "20min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
         ]
     },
     {
@@ -102,16 +229,16 @@ const MODULOS = [
         corIcone: "#b87ee8",
         icone: "ti-star",
         aulas: [
-            { id: "m4a1", nome: "Rock clássico", dur: "12min", disponivel: false },
-            { id: "m4a2", nome: "Samba", dur: "15min", disponivel: false },
-            { id: "m4a3", nome: "Jazz básico", dur: "14min", disponivel: false },
-            { id: "m4a4", nome: "Funk avançado", dur: "16min", disponivel: false },
-            { id: "m4a5", nome: "Bossa Nova", dur: "13min", disponivel: false },
-            { id: "m4a6", nome: "Metal", dur: "15min", disponivel: false },
-            { id: "m4a7", nome: "Blues", dur: "12min", disponivel: false },
-            { id: "m4a8", nome: "Reggae e baião", dur: "14min", disponivel: false },
-            { id: "m4a9", nome: "Fusão de estilos", dur: "18min", disponivel: false },
-            { id: "m4a10", nome: "Performance final", dur: "25min", disponivel: false },
+            { id: "m4a1", nome: "Rock clássico", dur: "12min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a2", nome: "Samba", dur: "15min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a3", nome: "Jazz básico", dur: "14min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a4", nome: "Funk avançado", dur: "16min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a5", nome: "Bossa Nova", dur: "13min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a6", nome: "Metal", dur: "15min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a7", nome: "Blues", dur: "12min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a8", nome: "Reggae e baião", dur: "14min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a9", nome: "Fusão de estilos", dur: "18min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
+            { id: "m4a10", nome: "Performance final", dur: "25min", disponivel: false, videoEmbed: "", descricao: "", materiais: [] },
         ]
     }
 ];
@@ -119,7 +246,6 @@ const MODULOS = [
 const TOTAL_AULAS = MODULOS.reduce((acc, m) => acc + m.aulas.length, 0);
 
 // ─── Proteção de página ───────────────────────────────────────────────────────
-// FIX: reload() é feito ANTES de qualquer decisão; admin é identificado primeiro
 auth.authStateReady().then(() => {
     onAuthStateChanged(auth, async (usuario) => {
         if (!usuario) {
@@ -127,11 +253,7 @@ auth.authStateReady().then(() => {
             return;
         }
 
-        try {
-            await usuario.reload();
-        } catch (e) {
-            console.warn("Reload falhou:", e);
-        }
+        try { await usuario.reload(); } catch (e) { console.warn("Reload falhou:", e); }
 
         if (usuario.email === EMAIL_ADMIN) {
             usuarioAtual = usuario;
@@ -210,9 +332,7 @@ async function salvarProgresso() {
 function calcularStreak() {
     const hoje = dataHoje();
 
-    if (!progressoAluno.diasEstudados) {
-        progressoAluno.diasEstudados = [];
-    }
+    if (!progressoAluno.diasEstudados) progressoAluno.diasEstudados = [];
 
     if (progressoAluno.ultimoEstudo === hoje && !progressoAluno.diasEstudados.includes(hoje)) {
         progressoAluno.diasEstudados.push(hoje);
@@ -266,7 +386,6 @@ async function marcarAulaCompleta(aulaId) {
 // ─── Renderização do nome e avatar ───────────────────────────────────────────
 function renderizarNome() {
     const primeiroNome = (dadosAluno.nome || "Aluno").split(" ")[0].toUpperCase();
-
     const elNome = document.querySelector(".welcome-text h1");
     if (elNome) elNome.innerHTML = `OLÁ, <span>${primeiroNome}!</span>`;
 }
@@ -279,6 +398,17 @@ function renderizarAvatar() {
 
     const avatarEl = document.querySelector(".avatar");
     if (avatarEl) avatarEl.textContent = iniciais.toUpperCase();
+
+    const dropdownNome = document.querySelector(".avatar-dropdown-nome");
+    const dropdownEmail = document.querySelector(".avatar-dropdown-email");
+    if (dropdownNome) dropdownNome.textContent = dadosAluno.nome || "Aluno";
+    if (dropdownEmail) dropdownEmail.textContent = dadosAluno.email || "";
+
+    const linkPerfil = document.querySelector(".avatar-dropdown a[href='#']");
+    if (linkPerfil && dadosAluno.email === EMAIL_ADMIN) {
+        linkPerfil.href = "../pages/admin.html";
+        linkPerfil.textContent = "⚙️ Painel Admin";
+    }
 
     document.querySelectorAll(".msg-av[data-eu]").forEach(el => {
         el.textContent = iniciais.toUpperCase();
@@ -297,9 +427,7 @@ function renderizarProgresso() {
     const labelEl = document.querySelector(".progress-card div[style*='font-size:12px']");
 
     if (numEl) numEl.textContent = pct + "%";
-    if (fillEl) {
-        setTimeout(() => { fillEl.style.width = pct + "%"; }, 300);
-    }
+    if (fillEl) setTimeout(() => { fillEl.style.width = pct + "%"; }, 300);
     if (labelEl) labelEl.textContent = `${completas} de ${TOTAL_AULAS} aulas concluídas`;
 }
 
@@ -419,37 +547,46 @@ function renderizarAulaItem(aula, modulo) {
     const proxima = !completa && aula.disponivel && proximaAulaId() === aula.id;
     const bloqueada = !aula.disponivel;
 
+    // ── Aula concluída → clicável para rever ──
     if (completa) {
         return `
-            <div class="aula-item">
+            <div class="aula-item aula-clicavel" onclick="abrirAula('${aula.id}', '${modulo.id}')">
                 <div class="aula-status done"><i class="ti ti-check" style="font-size:11px;"></i></div>
                 <span class="aula-nome done">${aula.nome}</span>
-                <span class="aula-dur">${aula.dur}</span>
+                <span class="aula-dur" style="color:#555;">${aula.dur}</span>
+                <i class="ti ti-repeat" style="font-size:12px;color:#444;margin-left:4px;" title="Rever aula"></i>
             </div>`;
-    } else if (proxima) {
+    }
+
+    // ── Próxima aula a fazer ──
+    if (proxima) {
         return `
             <div class="aula-item" style="background:#1e1800;border-radius:8px;cursor:pointer;" onclick="abrirAula('${aula.id}', '${modulo.id}')">
                 <div class="aula-status current"><i class="ti ti-player-play" style="font-size:11px;"></i></div>
                 <span class="aula-nome current">${aula.nome}</span>
                 <span class="aula-dur" style="color:${modulo.corIcone};">${aula.dur}</span>
             </div>`;
-    } else if (bloqueada) {
+    }
+
+    // ── Bloqueada (professor não liberou) ──
+    if (bloqueada) {
         return `
-            <div class="aula-item" style="opacity:0.5;">
+            <div class="aula-item" style="opacity:0.45;cursor:not-allowed;">
                 <div class="aula-status locked"><i class="ti ti-lock" style="font-size:11px;"></i></div>
                 <span class="aula-nome" style="color:#555;">${aula.nome}</span>
                 <span class="aula-dur">${aula.dur}</span>
             </div>`;
-    } else {
-        return `
-            <div class="aula-item" style="cursor:pointer;" onclick="abrirAula('${aula.id}', '${modulo.id}')">
-                <div class="aula-status" style="width:20px;height:20px;border-radius:50%;background:#2a2a2a;display:flex;align-items:center;justify-content:center;">
-                    <i class="ti ti-player-play" style="font-size:11px;color:#555;"></i>
-                </div>
-                <span class="aula-nome" style="color:#888;">${aula.nome}</span>
-                <span class="aula-dur">${aula.dur}</span>
-            </div>`;
     }
+
+    // ── Disponível mas ainda não feita ──
+    return `
+        <div class="aula-item" style="cursor:pointer;" onclick="abrirAula('${aula.id}', '${modulo.id}')">
+            <div class="aula-status" style="width:22px;height:22px;border-radius:50%;background:#2a2a2a;display:flex;align-items:center;justify-content:center;">
+                <i class="ti ti-player-play" style="font-size:11px;color:#555;"></i>
+            </div>
+            <span class="aula-nome" style="color:#888;">${aula.nome}</span>
+            <span class="aula-dur">${aula.dur}</span>
+        </div>`;
 }
 
 // ─── Próxima aula ─────────────────────────────────────────────────────────────
@@ -496,59 +633,123 @@ function renderizarProximaAula() {
     if (tagEl) tagEl.textContent = `Módulo ${moduloNum} · Aula ${index}`;
     if (tituloEl) tituloEl.textContent = aula.nome;
     if (durEl) {
-        durEl.querySelector("span").textContent = aula.dur + " · Nível " + nivelModulo(moduloNum);
+        const span = durEl.querySelector("span");
+        if (span) span.textContent = aula.dur + " · Nível " + nivelModulo(moduloNum);
     }
-    if (btnEl) {
-        btnEl.onclick = () => abrirAula(aula.id, modulo.id);
-    }
+    if (btnEl) btnEl.onclick = () => abrirAula(aula.id, modulo.id);
 }
 
 function nivelModulo(num) {
-    const niveis = ["iniciante", "básico", "intermediário", "avançado"];
-    return niveis[num - 1] || "intermediário";
+    return ["iniciante", "básico", "intermediário", "avançado"][num - 1] || "intermediário";
 }
 
-// ─── Abrir aula ───────────────────────────────────────────────────────────────
+// ─── Modal de aula ────────────────────────────────────────────────────────────
+// Estrutura completa pronta para o professor inserir o conteúdo.
+// Quando videoEmbed e descricao estiverem vazios, exibe placeholders visuais.
 window.abrirAula = async function (aulaId, moduloId) {
     const modulo = MODULOS.find(m => m.id === moduloId);
     const aula = modulo?.aulas.find(a => a.id === aulaId);
     if (!aula) return;
 
+    const completa = progressoAluno.aulasCompletas.includes(aulaId);
+    const moduloNum = MODULOS.indexOf(modulo) + 1;
+    const aulaNum = modulo.aulas.indexOf(aula) + 1;
+
+    // ── Seção de vídeo ──
+    const videoHtml = aula.videoEmbed
+        ? `<div class="modal-video-wrap">${aula.videoEmbed}</div>`
+        : `<div class="modal-video-placeholder">
+               <div class="modal-video-icon">🎬</div>
+               <div class="modal-video-txt">Vídeo em breve</div>
+               <div class="modal-video-sub">O professor ainda não adicionou o vídeo desta aula.</div>
+           </div>`;
+
+    // ── Seção de descrição ──
+    const descHtml = aula.descricao
+        ? `<div class="modal-descricao">${aula.descricao}</div>`
+        : `<div class="modal-descricao-vazia">
+               <i class="ti ti-notes" style="font-size:20px;color:#333;"></i>
+               <span>Anotações do professor aparecerão aqui.</span>
+           </div>`;
+
+    // ── Seção de materiais ──
+    const materiaisHtml = aula.materiais && aula.materiais.length > 0
+        ? `<div class="modal-materiais">
+               <div class="modal-sec-label">
+                   <i class="ti ti-paperclip" style="font-size:14px;"></i> Materiais complementares
+               </div>
+               <div class="modal-materiais-lista">
+                   ${aula.materiais.map(m => `
+                       <a href="${m.url}" target="_blank" class="modal-material-item">
+                           <i class="ti ti-download" style="font-size:14px;"></i>
+                           ${escapeHtml(m.nome)}
+                       </a>`).join("")}
+               </div>
+           </div>`
+        : "";
+
+    // ── Botão de ação principal ──
+    const btnAcaoHtml = completa
+        ? `<button class="modal-btn-secundario" disabled>
+               <i class="ti ti-check" style="font-size:15px;"></i> Aula concluída
+           </button>`
+        : `<button id="btn-marcar-modal" class="modal-btn-primario">
+               <i class="ti ti-check" style="font-size:15px;"></i> Marcar como concluída
+           </button>`;
+
+    // ── Monta overlay ──
+    // Remove qualquer modal anterior que possa ter ficado preso
+    const anterior = document.getElementById("aula-modal");
+    if (anterior) anterior.remove();
+
     const overlay = document.createElement("div");
     overlay.id = "aula-modal";
-    overlay.style.cssText = `
-        position:fixed;inset:0;background:rgba(0,0,0,0.85);
-        display:flex;align-items:center;justify-content:center;
-        z-index:1000;backdrop-filter:blur(4px);
-    `;
     overlay.innerHTML = `
-        <div style="background:#181818;border:1px solid #2a2a2a;border-radius:16px;
-                    padding:40px;max-width:520px;width:90%;text-align:center;">
-            <div style="font-size:48px;margin-bottom:16px;">🥁</div>
-            <div style="font-size:12px;background:#3a2e00;color:#e8c94a;
-                        padding:4px 12px;border-radius:5px;display:inline-block;
-                        margin-bottom:12px;">
-                ${modulo.nome}
-            </div>
-            <h2 style="font-family:'Bebas Neue',sans-serif;font-size:28px;
-                       color:#fff;margin:8px 0 4px;">${aula.nome}</h2>
-            <p style="color:#888;font-size:13px;margin-bottom:32px;">
-                ${aula.dur} de conteúdo
-            </p>
-            <p style="color:#555;font-size:12px;margin-bottom:24px;">
-                (Aqui será carregado o vídeo/conteúdo da aula quando disponível)
-            </p>
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-                <button id="btn-marcar" style="
-                    background:#e8c94a;color:#000;border:none;
-                    border-radius:8px;padding:12px 24px;font-weight:700;
-                    font-size:14px;cursor:pointer;font-family:Nunito,sans-serif;">
-                    ✅ Marcar como concluída
+        <div class="modal-backdrop" id="modal-backdrop"></div>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-label="${escapeHtml(aula.nome)}">
+
+            <!-- Cabeçalho -->
+            <div class="modal-header">
+                <div class="modal-header-meta">
+                    <span class="modal-tag" style="background:${modulo.cor};color:${modulo.corIcone};">
+                        Módulo ${moduloNum} · Aula ${aulaNum}
+                    </span>
+                    ${completa ? `<span class="modal-tag-completa"><i class="ti ti-check" style="font-size:11px;"></i> Concluída</span>` : ""}
+                </div>
+                <button class="modal-fechar" id="btn-modal-fechar" aria-label="Fechar">
+                    <i class="ti ti-x"></i>
                 </button>
-                <button onclick="fecharModal()" style="
-                    background:transparent;border:1px solid #2a2a2a;color:#888;
-                    border-radius:8px;padding:12px 24px;font-size:14px;
-                    cursor:pointer;font-family:Nunito,sans-serif;">
+            </div>
+
+            <!-- Título -->
+            <h2 class="modal-titulo">${escapeHtml(aula.nome)}</h2>
+
+            <div class="modal-duracao">
+                <i class="ti ti-clock" style="font-size:13px;"></i>
+                ${aula.dur} · Nível ${nivelModulo(moduloNum)}
+            </div>
+
+            <!-- Corpo rolável -->
+            <div class="modal-corpo">
+
+                <!-- Vídeo -->
+                ${videoHtml}
+
+                <!-- Descrição -->
+                <div class="modal-sec-label" style="margin-top:20px;">
+                    <i class="ti ti-align-left" style="font-size:14px;"></i> Sobre esta aula
+                </div>
+                ${descHtml}
+
+                <!-- Materiais -->
+                ${materiaisHtml}
+
+            </div>
+
+            <!-- Rodapé com ações -->
+            <div class="modal-footer">
+                ${btnAcaoHtml}
+                <button class="modal-btn-fechar-footer" id="btn-modal-fechar-footer">
                     Fechar
                 </button>
             </div>
@@ -556,32 +757,61 @@ window.abrirAula = async function (aulaId, moduloId) {
     `;
 
     document.body.appendChild(overlay);
+    // Trava scroll da página por trás enquanto o modal está aberto
+    document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+    // força reflow para a animação funcionar
+    requestAnimationFrame(() => overlay.querySelector(".modal-panel").classList.add("modal-panel-open"));
 
-    const btnMarcar = document.getElementById("btn-marcar");
-    const jaCompleta = progressoAluno.aulasCompletas.includes(aulaId);
+    // Fechar
+    const fechar = () => fecharModal();
+    document.getElementById("btn-modal-fechar").onclick = fechar;
+    document.getElementById("btn-modal-fechar-footer").onclick = fechar;
+    document.getElementById("modal-backdrop").onclick = fechar;
+    document.addEventListener("keydown", _escListener);
 
-    if (jaCompleta) {
-        btnMarcar.textContent = "✅ Já concluída";
-        btnMarcar.style.opacity = "0.6";
-        btnMarcar.disabled = true;
-    } else {
+    // Marcar como concluída
+    const btnMarcar = document.getElementById("btn-marcar-modal");
+    if (btnMarcar) {
         btnMarcar.onclick = async () => {
-            btnMarcar.textContent = "Salvando...";
             btnMarcar.disabled = true;
+            btnMarcar.innerHTML = `<i class="ti ti-loader" style="font-size:15px;"></i> Salvando…`;
             await marcarAulaCompleta(aulaId);
-            btnMarcar.textContent = "✅ Concluída!";
-            setTimeout(() => fecharModal(), 1000);
+            btnMarcar.innerHTML = `<i class="ti ti-check" style="font-size:15px;"></i> Concluída!`;
+            btnMarcar.classList.replace("modal-btn-primario", "modal-btn-secundario");
+            setTimeout(() => fecharModal(), 900);
         };
     }
-
-    overlay.addEventListener("click", (e) => {
-        if (e.target === overlay) fecharModal();
-    });
 };
 
+function _escListener(e) {
+    if (e.key === "Escape") fecharModal();
+}
+
 window.fecharModal = function () {
+    document.removeEventListener("keydown", _escListener);
     const modal = document.getElementById("aula-modal");
-    if (modal) modal.remove();
+    if (!modal) return;
+
+    // Libera o scroll da página
+    document.body.style.overflow = "";
+    document.body.style.touchAction = "";
+
+    const panel = modal.querySelector(".modal-panel");
+    if (panel) {
+        panel.classList.remove("modal-panel-open");
+        const isMobile = window.innerWidth <= 700;
+        if (isMobile) {
+            panel.style.transform = "translateY(100%)";
+        } else {
+            panel.style.opacity = "0";
+            panel.style.transform = "translateY(10px)";
+        }
+        panel.style.transition = "transform 0.22s ease, opacity 0.22s ease";
+        setTimeout(() => modal.remove(), 230);
+    } else {
+        modal.remove();
+    }
 };
 
 // ─── Chat aluno–professor ─────────────────────────────────────────────────────
@@ -603,8 +833,7 @@ function iniciarChat() {
 
         chatMsgs.innerHTML = "";
         snapshot.forEach(docSnap => {
-            const msg = docSnap.data();
-            appendMensagem(msg, iniciais);
+            appendMensagem(docSnap.data(), iniciais);
         });
         chatMsgs.scrollTop = chatMsgs.scrollHeight;
 
@@ -620,13 +849,8 @@ function iniciarChat() {
 
     const input = document.getElementById("chatInput");
     const btnSend = document.querySelector(".chat-send");
-
-    if (input) {
-        input.onkeydown = (e) => { if (e.key === "Enter") enviarMensagem(); };
-    }
-    if (btnSend) {
-        btnSend.onclick = enviarMensagem;
-    }
+    if (input) input.onkeydown = (e) => { if (e.key === "Enter") enviarMensagem(); };
+    if (btnSend) btnSend.onclick = enviarMensagem;
 }
 
 function appendMensagem(msg, minhasIniciais) {
@@ -662,9 +886,8 @@ async function enviarMensagem() {
 
     input.value = "";
 
-    const chatRef = collection(db, "chats", usuarioAtual.uid, "mensagens");
-
     try {
+        const chatRef = collection(db, "chats", usuarioAtual.uid, "mensagens");
         await addDoc(chatRef, {
             texto,
             autor: "aluno",
@@ -682,7 +905,6 @@ async function enviarMensagem() {
             atualizadoEm: serverTimestamp(),
             naolidas: 1
         }, { merge: true });
-
     } catch (e) {
         console.error("Erro ao enviar mensagem:", e);
     }
@@ -691,24 +913,30 @@ async function enviarMensagem() {
 // ─── Navegação ────────────────────────────────────────────────────────────────
 function configurarNavegacao() {
     const links = document.querySelectorAll(".nav-links a");
+    const navLinks = document.getElementById('nav-links');
+    const navToggle = document.getElementById('nav-toggle');
 
     links.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
+            if (navLinks) navLinks.classList.remove('aberto');
+            if (navToggle) navToggle.textContent = '☰';
             links.forEach(l => l.classList.remove("active"));
             link.classList.add("active");
 
             const texto = link.textContent.trim();
-
-            if (texto === "Início") {
-                mostrarSecao("inicio");
-            } else if (texto === "Módulos") {
-                mostrarSecao("modulos");
-            } else if (texto === "Biblioteca") {
-                mostrarSecao("biblioteca");
-            }
+            if (texto === "Início") mostrarSecao("inicio");
+            else if (texto === "Módulos") mostrarSecao("modulos");
+            else if (texto === "Biblioteca") mostrarSecao("biblioteca");
         });
     });
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('aberto');
+            navToggle.textContent = navLinks.classList.contains('aberto') ? '✕' : '☰';
+        });
+    }
 }
 
 function mostrarSecao(secao) {
@@ -718,21 +946,12 @@ function mostrarSecao(secao) {
     if (secao === "inicio") {
         if (heroSection) heroSection.style.display = "";
         if (mainContent) mainContent.style.display = "";
-
         const tmp = document.getElementById("secao-temporaria");
         if (tmp) tmp.remove();
-
-    } else if (secao === "modulos") {
+    } else {
         if (heroSection) heroSection.style.display = "none";
         if (mainContent) mainContent.style.display = "none";
-
-        mostrarSecaoTemporaria("modulos");
-
-    } else if (secao === "biblioteca") {
-        if (heroSection) heroSection.style.display = "none";
-        if (mainContent) mainContent.style.display = "none";
-
-        mostrarSecaoTemporaria("biblioteca");
+        mostrarSecaoTemporaria(secao);
     }
 }
 
@@ -768,12 +987,6 @@ function mostrarSecaoTemporaria(tipo) {
             const emAndamento = aulasCompletas > 0 && !concluido;
             const modId = modulo.id + "-full";
 
-            let statusBadge = concluido
-                ? `<span style="color:#5acd2a;font-weight:700;">Concluído</span>`
-                : emAndamento
-                    ? `<span style="font-size:12px;background:#3a2e00;color:#e8c94a;padding:2px 8px;border-radius:5px;font-weight:700;">Em andamento</span>`
-                    : `<span style="font-size:12px;color:#555;">${aulasCompletas}/${totalAulas} aulas</span>`;
-
             const card = document.createElement("div");
             card.className = "modulo-card" + (emAndamento ? " em-andamento" : "");
             card.innerHTML = `
@@ -786,7 +999,11 @@ function mostrarSecaoTemporaria(tipo) {
                         <div class="modulo-desc">${modulo.desc}</div>
                     </div>
                     <div class="modulo-stats">
-                        ${statusBadge}
+                        ${concluido
+                    ? `<span style="color:#5acd2a;font-weight:700;">Concluído</span>`
+                    : emAndamento
+                        ? `<span style="font-size:12px;background:#3a2e00;color:#e8c94a;padding:2px 8px;border-radius:5px;font-weight:700;">Em andamento</span>`
+                        : `<span style="font-size:12px;color:#555;">${aulasCompletas}/${totalAulas} aulas</span>`}
                         <i class="ti ti-chevron-down" id="${modId}-chev" style="color:#555;font-size:16px;transition:transform 0.2s;"></i>
                     </div>
                 </div>
@@ -838,30 +1055,30 @@ function mostrarSecaoTemporaria(tipo) {
 
 // ─── Logout ───────────────────────────────────────────────────────────────────
 function configurarLogout() {
-    const avatar = document.querySelector(".avatar");
-    if (avatar) {
-        avatar.style.cursor = "pointer";
-        avatar.title = "Clique para sair";
-        avatar.onclick = () => {
-            if (confirm("Deseja sair da sua conta?")) {
-                if (unsubscribeChat) unsubscribeChat();
-                signOut(auth).then(() => {
-                    window.location.href = "../index.html";
-                });
-            }
-        };
+    const avatarBtn = document.getElementById('avatar-btn');
+    const avatarDropdown = document.getElementById('avatar-dropdown');
+    const btnLogout = document.getElementById('btn-logout');
+
+    if (avatarBtn && avatarDropdown) {
+        avatarBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            avatarDropdown.classList.toggle('aberto');
+        });
+        document.addEventListener('click', () => avatarDropdown.classList.remove('aberto'));
+        avatarDropdown.addEventListener('click', (e) => e.stopPropagation());
+    }
+
+    if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+            if (unsubscribeChat) unsubscribeChat();
+            signOut(auth).then(() => { window.location.href = "../index.html"; });
+        });
     }
 }
 
 // ─── Utilitários ──────────────────────────────────────────────────────────────
-function dataHoje() {
-    return formatarData(new Date());
-}
-
-function formatarData(d) {
-    return d.toISOString().split("T")[0];
-}
-
+function dataHoje() { return formatarData(new Date()); }
+function formatarData(d) { return d.toISOString().split("T")[0]; }
 function escapeHtml(str) {
     return String(str)
         .replace(/&/g, "&amp;")
@@ -870,11 +1087,9 @@ function escapeHtml(str) {
         .replace(/"/g, "&quot;");
 }
 
-// ─── toggleMod (global) ───────────────────────────────────────────────────────
 window.toggleMod = function (id) {
     const body = document.getElementById(id);
-    const chevId = id.replace("-body", "-chev");
-    const chev = document.getElementById(chevId);
+    const chev = document.getElementById(id.replace("-body", "-chev"));
     if (!body) return;
     const isOpen = body.style.display !== "none";
     body.style.display = isOpen ? "none" : "block";

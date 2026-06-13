@@ -1,7 +1,3 @@
-// ============================================
-// ADMIN.JS — Painel do professor
-// ============================================
-
 import {
     protegerAdmin,
     fazerLogout,
@@ -17,38 +13,73 @@ import {
     updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// --- Reutiliza o Firebase já iniciado no auth.js ---
 const db = getFirestore(getApp());
 
-// --- Protege a página ---
 protegerAdmin();
 
-// --- Estado local ---
 let todosAlunos = [];
 let filtroAtivo = "todos";
 let termoBusca = "";
 
-// --- Elementos ---
 const corpoTabela = document.getElementById("corpo-tabela");
 const inputBusca = document.getElementById("busca");
 const infoProfessor = document.getElementById("info-professor");
 
-// --- Info do professor logado ---
-// Aguarda o auth estar pronto antes de buscar o usuário
 setTimeout(() => {
     const professor = getUsuarioAtual();
-    if (professor) {
-        infoProfessor.textContent = "👤 " + professor.email;
-    }
-}, 1000);
+    if (!professor) return;
 
-// --- Logout ---
-document.getElementById("link-logout").addEventListener("click", async (e) => {
-    e.preventDefault();
-    await fazerLogout();
+    const email = professor.email || "";
+
+    // Iniciais: duas primeiras letras do email
+    const iniciais = email.substring(0, 2).toUpperCase();
+
+    const avatarEl = document.getElementById("admin-avatar-btn");
+    const nomeEl = document.getElementById("admin-dropdown-nome");
+    const emailEl = document.getElementById("admin-dropdown-email");
+
+    if (avatarEl) avatarEl.textContent = iniciais;
+    if (nomeEl) nomeEl.textContent = "Professor";
+    if (emailEl) emailEl.textContent = email;
+}, 500);
+
+const adminAvatarBtn = document.getElementById("admin-avatar-btn");
+const adminDropdown = document.getElementById("admin-avatar-dropdown");
+
+adminAvatarBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const aberto = adminDropdown.style.display === "block";
+    adminDropdown.style.display = aberto ? "none" : "block";
+    if (!aberto) {
+        adminAvatarBtn.style.boxShadow = "0 0 0 3px rgba(232,160,32,0.35)";
+        adminAvatarBtn.style.transform = "scale(1.06)";
+    } else {
+        adminAvatarBtn.style.boxShadow = "";
+        adminAvatarBtn.style.transform = "";
+    }
 });
 
-// --- Carregar alunos do Firestore ---
+document.addEventListener("click", () => {
+    if (adminDropdown) adminDropdown.style.display = "none";
+    if (adminAvatarBtn) {
+        adminAvatarBtn.style.boxShadow = "";
+        adminAvatarBtn.style.transform = "";
+    }
+});
+
+adminDropdown?.addEventListener("click", (e) => e.stopPropagation());
+
+// --- Logout ---
+async function fazerLogoutAdmin() {
+    await fazerLogout();
+}
+
+document.getElementById("admin-btn-logout")?.addEventListener("click", fazerLogoutAdmin);
+document.getElementById("link-logout")?.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await fazerLogoutAdmin();
+});
+
 async function carregarAlunos() {
     try {
         const snapshot = await getDocs(collection(db, "alunos"));
@@ -73,7 +104,6 @@ async function carregarAlunos() {
     }
 }
 
-// --- Atualizar cards de estatísticas ---
 function atualizarStats() {
     const aprovados = todosAlunos.filter(a => a.status === "aprovado").length;
     const pendentes = todosAlunos.filter(a => a.status === "pendente").length;
@@ -85,7 +115,6 @@ function atualizarStats() {
     document.getElementById("stat-bloqueados").textContent = bloqueados;
 }
 
-// --- Renderizar tabela ---
 function renderizarTabela() {
     let lista = todosAlunos;
 
@@ -144,7 +173,6 @@ function renderizarTabela() {
     `).join("");
 }
 
-// --- Alterar status ---
 window.alterarStatus = async function (uid, novoStatus) {
     try {
         await updateDoc(doc(db, "alunos", uid), { status: novoStatus });
@@ -161,7 +189,6 @@ window.alterarStatus = async function (uid, novoStatus) {
     }
 };
 
-// --- Filtros ---
 document.querySelectorAll(".filtro-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelectorAll(".filtro-btn").forEach(b => b.classList.remove("ativo"));
@@ -171,13 +198,11 @@ document.querySelectorAll(".filtro-btn").forEach(btn => {
     });
 });
 
-// --- Busca ---
 inputBusca.addEventListener("input", (e) => {
     termoBusca = e.target.value.trim();
     renderizarTabela();
 });
 
-// --- Utilitários ---
 function formatarData(iso) {
     if (!iso) return "—";
     return new Date(iso).toLocaleDateString("pt-BR");
@@ -188,5 +213,18 @@ function iconeStatus(status) {
     return icones[status] || "•";
 }
 
-// --- Iniciar ---
+const btnMenu = document.getElementById('btn-menu');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+btnMenu?.addEventListener('click', () => {
+    sidebar.classList.toggle('aberto');
+    overlay.classList.toggle('visivel');
+});
+
+overlay?.addEventListener('click', () => {
+    sidebar.classList.remove('aberto');
+    overlay.classList.remove('visivel');
+});
+
 carregarAlunos();

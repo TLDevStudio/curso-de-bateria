@@ -555,3 +555,187 @@ body {
     margin: 16px;
   }
 }
+
+/* ============================================
+   CORREÇÕES MOBILE — adicione ao final do style.css
+   (ou substitua os blocos @media existentes)
+   ============================================ */
+
+/* --- Hambúrguer (botão que abre o sidebar) --- */
+.admin-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--cor-texto);
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+/* --- Overlay escuro por trás do sidebar aberto --- */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 199;
+}
+
+.sidebar-overlay.visivel {
+  display: block;
+}
+
+/* ========== BREAKPOINT PRINCIPAL ========== */
+@media (max-width: 900px) {
+
+  /* Layout vira coluna única */
+  .admin-layout {
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+
+  /* Sidebar: oculto por padrão, desliza pela esquerda */
+  .admin-sidebar {
+    display: block;
+    /* não some mais — fica fora da tela */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .admin-sidebar.aberto {
+    transform: translateX(0);
+  }
+
+  /* Botão hambúrguer aparece */
+  .admin-menu-toggle {
+    display: flex;
+  }
+
+  /* Header: empurra o toggle para a esquerda */
+  .admin-header {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+
+  .admin-header>div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .admin-titulo-pagina {
+    font-size: 1.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Main: padding menor */
+  .admin-main {
+    padding: 24px 16px;
+    /* garante que não ultrapasse a viewport */
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Stats: cards com largura mínima menor */
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 18px 16px;
+  }
+
+  .stat-card-numero {
+    font-size: 2rem;
+  }
+
+  /* Tabela: header em coluna, filtros ocupam largura toda */
+  .card-tabela-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .filtros {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filtro-btn {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    padding: 10px 8px;
+    font-size: 0.82rem;
+  }
+
+  .input-busca {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Tabela: scroll horizontal contido, sem vazar */
+  .card-tabela {
+    overflow: hidden;
+  }
+
+  .card-tabela>div[style*="overflow-x"] {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabela-alunos {
+    min-width: 480px;
+    /* força scroll interno antes de vazar */
+  }
+
+  .tabela-alunos th,
+  .tabela-alunos td {
+    padding: 14px 14px;
+    font-size: 0.85rem;
+  }
+
+  .acoes {
+    gap: 6px;
+  }
+
+  .btn-acao {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ========== TELAS MUITO PEQUENAS ========== */
+@media (max-width: 420px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .admin-titulo-pagina {
+    font-size: 1.5rem;
+  }
+
+  .admin-badge {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+}

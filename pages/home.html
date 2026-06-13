@@ -14,12 +14,26 @@
 
         <nav class="topbar">
             <div class="logo">DANIEL<span>SANTOS</span></div>
-            <div class="nav-links">
+
+            <button class="nav-toggle" id="nav-toggle">☰</button>
+
+            <div class="nav-links" id="nav-links">
                 <a href="#" class="active">Início</a>
                 <a href="#">Módulos</a>
                 <a href="#">Biblioteca</a>
             </div>
-            <div class="avatar">MA</div>
+
+            <div class="avatar-wrap">
+                <div class="avatar" id="avatar-btn">MA</div>
+                <div class="avatar-dropdown" id="avatar-dropdown">
+                    <div class="avatar-dropdown-header">
+                        <div class="avatar-dropdown-nome"></div>
+                        <div class="avatar-dropdown-email"></div>
+                    </div>
+                    <a href="#">👤 Meu perfil</a>
+                    <button class="logout-btn" id="btn-logout">🚪 Sair</button>
+                </div>
+            </div>
         </nav>
 
         <div class="hero-section">

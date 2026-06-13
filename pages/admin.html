@@ -47,14 +47,65 @@
 
             <!-- Header -->
             <div class="admin-header">
-                <div>
-                    <span class="admin-badge">Painel Admin</span>
-                    <h1 class="admin-titulo-pagina" id="titulo-pagina">
-                        Gerenciar Alunos
-                    </h1>
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <button class="admin-menu-toggle" id="btn-menu">☰</button>
+                    <div>
+                        <span class="admin-badge">Painel Admin</span>
+                        <h1 class="admin-titulo-pagina" id="titulo-pagina">
+                            Gerenciar Alunos
+                        </h1>
+                    </div>
                 </div>
-                <div id="info-professor" style="color: var(--cor-texto-suave); font-size: 0.85rem;">
-                    Carregando...
+
+                <!-- Avatar com dropdown -->
+                <div class="avatar-wrap" style="position:relative;">
+                    <div class="avatar" id="admin-avatar-btn" style="
+            width:38px; height:38px;
+            background:#e8a020;
+            border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            font-weight:700; font-size:13px; color:#111;
+            cursor:pointer; user-select:none;
+            border:2px solid transparent;
+            transition:box-shadow 0.2s, transform 0.15s;
+        ">PF</div>
+
+                    <div id="admin-avatar-dropdown" style="
+            display:none;
+            position:absolute; top:calc(100% + 10px); right:0;
+            background:#1a1a1a;
+            border:1px solid #333;
+            border-radius:12px;
+            min-width:200px;
+            box-shadow:0 8px 24px rgba(0,0,0,0.5);
+            overflow:hidden;
+            z-index:300;
+        ">
+                        <div style="padding:14px 16px 10px; border-bottom:1px solid #2a2a2a;">
+                            <div id="admin-dropdown-nome" style="font-size:13px; font-weight:700; color:#f0f0f0;">
+                                Professor</div>
+                            <div id="admin-dropdown-email" style="font-size:11px; color:#666; margin-top:2px;"></div>
+                        </div>
+                        <a href="home.html" style="
+                display:flex; align-items:center; gap:10px;
+                padding:11px 16px;
+                color:#aaa; font-size:13px; text-decoration:none;
+                transition:background 0.15s, color 0.15s;
+            " onmouseover="this.style.background='#222';this.style.color='#f0f0f0'"
+                            onmouseout="this.style.background='';this.style.color='#aaa'">
+                            🏠 Ver site
+                        </a>
+                        <button id="admin-btn-logout" style="
+                display:flex; align-items:center; gap:10px;
+                width:100%; padding:11px 16px;
+                background:none; border:none; border-top:1px solid #2a2a2a;
+                color:#f87171; font-size:13px;
+                font-family:inherit; cursor:pointer; text-align:left;
+                transition:background 0.15s;
+            " onmouseover="this.style.background='rgba(239,68,68,0.08)'" onmouseout="this.style.background=''">
+                            🚪 Sair
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -129,6 +180,7 @@
     </div>
 
     <script type="module" src="../js/admin.js"></script>
+    <div class="sidebar-overlay" id="overlay"></div>
 </body>
 
 </html>
